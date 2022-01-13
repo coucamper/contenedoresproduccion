@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Pagina de inicio transporte</title>
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+	crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container-fluid">
+		<!-- cabecera -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="menu_sup bordtop bordbot">
+					<nav class="navbar navbar-expand-lg navbar-light bg-light">
+						<a class="navbar-brand red" href="#">CÁRITAS KOOPERA SOC.
+							COOP. ASTUR</a>
+						<button class="navbar-toggler" type="button"
+							data-toggle="collapse" data-target="#navbarNavAltMarkup"
+							aria-controls="navbarNavAltMarkup" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+							<div class="navbar-nav">
+								<a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+								<a class="nav-link" href="#">Administración</a> <a
+									class="nav-link" href="#">Tiendas</a> <a
+									class="nav-link active" href="#">Recogida</a> 
+									<a class="nav-link" href="#">Picking</a>
+									<a class="nav-link" href="#">Acompañamiento</a>
+									<a class="nav-link" href="#">Información</a>
+
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<!-- end cabecera -->
+		<div class="subheader col-lg-12 bordbot">
+<ul class="minimal">
+				<li><b>Usuario:</b> Irene belloso</li>
+				<li>- <b>Sesión: </b></li>
+				<li th:text="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}"></li>
+			</ul>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="areas">Área de Recogida</h1>
+			</div>
+		</div>
+		<div class="row">
+
+
+			<div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light bordbot">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarNavAltMarkup"
+                            aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                            <a class="nav-link" th:href="@{/panelentrada(usuario=Irene)}"><i class="fas fa-desktop"></i> &nbsp; Panel</a> 
+                            <a class="nav-link" th:href="@{/empleados}"><i class="fas fa-users"></i> &nbsp; Equipo</a> 
+                                <a class="nav-link" th:href="@{/rutas}"><i class="fas fa-truck"></i>&nbsp; Rutas <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" th:href="@{/pesajes}"><i class="fas fa-weight"></i> &nbsp;Pesajes</a> <a
+                                    class="nav-link active" th:href="@{/contenedores}"><i class="fas fa-dumpster"></i>&nbsp; Contenedores</a> <a
+                                    class="nav-link" th:href="@{/incidencias}"><i class="fas fa-exclamation-triangle"></i>&nbsp; Incidencias</a>
+                                <a class="nav-link" th:href="@{/exportaciones}"><i class="fas fa-warehouse"></i>&nbsp; Exportación</a>
+    
+                            </div>
+                        </div>
+                    </nav>
+                
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light fsmall">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarNavAltMarkup"
+                            aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+        
+                                <a class="nav-link active fsmall" href="#">> ID</a>
+                                <a class="nav-link fsmall" href="#">> Categoría</a> 
+                                <a class="nav-link fsmall" href="#">> Niveles</a>
+                                <a class="nav-link fsmall" href="#">> Incidencias</a>
+                                <a class="nav-link fsmall" href="#">> Mantenimiento</a>
+    
+                            </div>
+                        </div>
+                    </nav>	
+
+			</div>
+				<div class="col-l-12">
+			
+				</div>
+		
+			<div class="col-lg-12">
+				<h2 class="pl-2 pt-4">Modificar contenedor</h2>
+
+		<form th:action="@{/submitcontenedor}" method="post" th:object="${contenedor}">
+		
+		<label for="denom">Denominación: </label>
+		<input type="text" name="denom" id="denom">
+		
+		<label for="ubicacion">Ubicación: </label>
+		<input type="text" name="ubicacion" id="ubicacion">
+		
+		<label for="coordenadas">Coordenadas: </label>
+		<input type="text" name="coordenadas" id="coordenadas"/>
+		
+		<label for="mapa">Mapa: </label>
+		<input type="text" name="mapa" id="mapa"/>
+		
+		<label for="fechaimplantacion">Fecha implantación:  </label>
+		<input type="date" name="fechaimplantacion" id="fechaimplantacion">
+		
+		<input type="submit" value="Salvar Contenedor" class="btn btn-warning">
+		</form>
+
+
+<!-- 	<form th:action="@{/submit}" method="post" th:object="${linea}">
+		idLinea <input type="text" name="idlinea" id="idlinea" th:value="*{idlinea}">
+		numero <input type="text" name="numero" id="numero" th:value="*{dencorta}">
+		denominacion <input type="text" name="denominacion" id="denomincaion" th:value="*{denlarga}">
+		Fecha Creación <input type="text" name="fecha" id="fecha" th:value="*{fecha}">
+		<input type="submit" value="modificar" >
+	</form> -->
+
+			</div>
+			     <div class="col-lg-12 pt-3">
+                    <a th:href="@{/contenedores}" class="enlaces btn btn-danger">Volver</a>
+                </div>
+		</div>
+
+
+
+
+
+
+
+
+
+	</div>
+
+
+
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+		integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+		crossorigin="anonymous"></script>
+</body>
+</html>
