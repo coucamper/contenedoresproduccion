@@ -3,14 +3,15 @@ package com.dawes.servicioimpl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
+
+
 import org.springframework.stereotype.Service;
 
 import com.dawes.modelos.RolVO;
 import com.dawes.repository.RolRepo;
 import com.dawes.services.RolService;
 
-@Primary
 @Service
 public class RolServiceImpl implements RolRepo, RolService {
 
@@ -71,12 +72,8 @@ public class RolServiceImpl implements RolRepo, RolService {
 	public void deleteAll() {
 		rr.deleteAll();
 	}
+	
+	
+	
 
-	@Override
-	public RolVO findByNombre(String nombre) {
-		return rr.findByNombre(nombre);
-	}
-	
-	
-	
 }

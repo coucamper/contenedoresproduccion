@@ -18,30 +18,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "mensajes")
+@Table(name="mensajes")
 public class MensajeVO {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idmensaje;
-	private LocalDateTime hora;
+	
+	private LocalDateTime fechahora;	
 	private String asunto;
 	private String contenido;
 	
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "empleadoid", referencedColumnName="idempleado", insertable=true, updatable=true, nullable = true)
+	@ManyToOne
+	@JoinColumn(name="idremitente",referencedColumnName="idempleado", insertable=true, updatable=true, nullable = true)
 	private EmpleadoVO remitente;
 	
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "receptorid", referencedColumnName="idempleado", insertable=false, updatable=false, nullable = true)
+	@ManyToOne
+	@JoinColumn(name="idreceptor",referencedColumnName="idempleado", insertable=true, updatable=true, nullable = true)
 	private EmpleadoVO receptor;
 	
-	private String importancia;
-	
+//	@ManyToOne
+//	@JoinColumn(name="idtipoimportancia")
+	private int idtipoimportancia;
 
-	/*
-	 * @ManyToOne(optional=false)
-@JoinColumn(name="productId",referencedColumnName="id_product", insertable=false, updatable=false)
-private Product product;
-	 */
 }

@@ -28,6 +28,4 @@ public interface RolService {
 
 	void deleteAll();
 
-	RolVO findByNombre(String nombre);
-
 }

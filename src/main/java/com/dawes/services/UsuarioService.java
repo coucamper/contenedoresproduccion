@@ -6,8 +6,6 @@ import com.dawes.modelos.UsuarioVO;
 
 public interface UsuarioService {
 
-	UsuarioVO findByUsername(String username);
-
 	<S extends UsuarioVO> S save(S entity);
 
 	<S extends UsuarioVO> Iterable<S> saveAll(Iterable<S> entities);

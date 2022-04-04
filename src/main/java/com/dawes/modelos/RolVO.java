@@ -1,11 +1,11 @@
 package com.dawes.modelos;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 
 
 import lombok.AllArgsConstructor;
@@ -18,12 +18,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="roles")
 public class RolVO {
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idrol;
+	private long idrol;
 	
-	private String nombre;
-
-
-
+	@Column(unique=true, length = 20)
+	private String role;
+	
+	private static final long serialVersionUID = 1L; // Siempre requerido si implementamos Serializabl
+	
 }

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dawes.modelos.TipoPermisoNrVO;
-import com.dawes.modelos.ZonasVO;
 import com.dawes.services.TipoPermisoNrService;
 
 @RestController

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,19 +15,19 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dawes.modelos.RutaVO;
-import com.dawes.modelos.llenadoContVO;
-import com.dawes.servicioimpl.LlenadoContServiceImpl;
+import com.dawes.modelos.LlenadoContVO;
+import com.dawes.services.LlenadoContService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class LlenadoContWS {
 
 	@Autowired
-	LlenadoContServiceImpl lcsi;
+	LlenadoContService lcsi;
 
 	@GetMapping("/llenados")
 	public ResponseEntity<?> leerTodos() {
-		List<llenadoContVO> lista = (List<llenadoContVO>) lcsi.findAll();
+		List<LlenadoContVO> lista = (List<LlenadoContVO>) lcsi.findAll();
 		// Si la lista está vacia debe devolver un error 404
 		if (lista.isEmpty()) {
 			return ResponseEntity.notFound().build();
@@ -37,7 +38,7 @@ public class LlenadoContWS {
 
 	@GetMapping("/llenados/{idllenado}")
 	public ResponseEntity<?> leerPorId(@PathVariable int idllenado) {
-		Optional<llenadoContVO> c = lcsi.findById(idllenado);
+		Optional<LlenadoContVO> c = lcsi.findById(idllenado);
 		if (c.isPresent()) {
 			return ResponseEntity.ok(c);
 		} else {
@@ -46,13 +47,13 @@ public class LlenadoContWS {
 	}
 
 	@PostMapping("/llenados")
-	public ResponseEntity<?> insertar(@RequestBody llenadoContVO llenado) {
+	public ResponseEntity<?> insertar(@RequestBody LlenadoContVO llenado) {
 		lcsi.save(llenado);
 		return ResponseEntity.status(HttpStatus.CREATED).body(llenado);
 	}
 
 	@PutMapping("/llenados/{idllenado}")
-	public ResponseEntity<?> modificar(@PathVariable int idllenado, @RequestBody llenadoContVO llenado) {
+	public ResponseEntity<?> modificar(@PathVariable int idllenado, @RequestBody LlenadoContVO llenado) {
 		if (lcsi.findById(idllenado).isPresent()) {
 			llenado.setIdllenado(idllenado);
 			lcsi.save(llenado);
@@ -65,7 +66,7 @@ public class LlenadoContWS {
 	@DeleteMapping("/llenados/{idllenado}")
 	public ResponseEntity<?> borrar(@PathVariable int idllenado) {
 		if (lcsi.findById(idllenado).isPresent()) {
-			llenadoContVO p = lcsi.findById(idllenado).get();
+			LlenadoContVO p = lcsi.findById(idllenado).get();
 			lcsi.deleteById(idllenado);
 			return ResponseEntity.noContent().build();
 		} else {

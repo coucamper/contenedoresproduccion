@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -30,16 +30,6 @@ public class RutaVO {
 	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 	private LocalDate fechaini;
 	private String periodo;
-	private String localidad;
-	private String zona;
-	
-//	@Lob
-//	private String ruta;
-//	
-//	@OneToMany(mappedBy="idpesaje")
-//	private List<PesajeVO> pesaje;
-//	
-//	@OneToMany(mappedBy="idcontenedor")
-//	private List<ContenedorVO> contenedores;
-
+	private int localidad;
+	private int zona;
 }

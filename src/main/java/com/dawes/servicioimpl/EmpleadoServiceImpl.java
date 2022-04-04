@@ -1,14 +1,20 @@
 package com.dawes.servicioimpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.dawes.modelos.EmpleadoVO;
 import com.dawes.repository.EmpleadoRepo;
 import com.dawes.services.EmpleadoService;
+
 
 @Primary
 @Service
@@ -23,7 +29,32 @@ public class EmpleadoServiceImpl implements EmpleadoRepo, EmpleadoService {
 	}
 
 	@Override
-	public <S extends EmpleadoVO> Iterable<S> saveAll(Iterable<S> entities) {
+	public <S extends EmpleadoVO> Optional<S> findOne(Example<S> example) {
+		return er.findOne(example);
+	}
+
+	@Override
+	public Page<EmpleadoVO> findAll(Pageable pageable) {
+		return er.findAll(pageable);
+	}
+
+	@Override
+	public List<EmpleadoVO> findAll() {
+		return er.findAll();
+	}
+
+	@Override
+	public List<EmpleadoVO> findAll(Sort sort) {
+		return er.findAll(sort);
+	}
+
+	@Override
+	public List<EmpleadoVO> findAllById(Iterable<Integer> ids) {
+		return er.findAllById(ids);
+	}
+
+	@Override
+	public <S extends EmpleadoVO> List<S> saveAll(Iterable<S> entities) {
 		return er.saveAll(entities);
 	}
 
@@ -33,18 +64,53 @@ public class EmpleadoServiceImpl implements EmpleadoRepo, EmpleadoService {
 	}
 
 	@Override
+	public void flush() {
+		er.flush();
+	}
+
+	@Override
+	public <S extends EmpleadoVO> S saveAndFlush(S entity) {
+		return er.saveAndFlush(entity);
+	}
+
+	@Override
 	public boolean existsById(Integer id) {
 		return er.existsById(id);
 	}
 
 	@Override
-	public Iterable<EmpleadoVO> findAll() {
-		return er.findAll();
+	public void deleteInBatch(Iterable<EmpleadoVO> entities) {
+		er.deleteInBatch(entities);
 	}
 
 	@Override
-	public Iterable<EmpleadoVO> findAllById(Iterable<Integer> ids) {
-		return er.findAllById(ids);
+	public <S extends EmpleadoVO> Page<S> findAll(Example<S> example, Pageable pageable) {
+		return er.findAll(example, pageable);
+	}
+
+	@Override
+	public void deleteAllInBatch() {
+		er.deleteAllInBatch();
+	}
+
+	@Override
+	public EmpleadoVO getOne(Integer id) {
+		return er.getOne(id);
+	}
+
+	@Override
+	public <S extends EmpleadoVO> long count(Example<S> example) {
+		return er.count(example);
+	}
+
+	@Override
+	public <S extends EmpleadoVO> boolean exists(Example<S> example) {
+		return er.exists(example);
+	}
+
+	@Override
+	public <S extends EmpleadoVO> List<S> findAll(Example<S> example) {
+		return er.findAll(example);
 	}
 
 	@Override
@@ -55,6 +121,11 @@ public class EmpleadoServiceImpl implements EmpleadoRepo, EmpleadoService {
 	@Override
 	public void deleteById(Integer id) {
 		er.deleteById(id);
+	}
+
+	@Override
+	public <S extends EmpleadoVO> List<S> findAll(Example<S> example, Sort sort) {
+		return er.findAll(example, sort);
 	}
 
 	@Override
@@ -71,6 +142,13 @@ public class EmpleadoServiceImpl implements EmpleadoRepo, EmpleadoService {
 	public void deleteAll() {
 		er.deleteAll();
 	}
+
+	@Override
+	public EmpleadoVO findByNif(String nif) {
+		return er.findByNif(nif);
+	}
+
+	
 	
 	
 

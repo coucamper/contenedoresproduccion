@@ -2,29 +2,29 @@ package com.dawes.services;
 
 import java.util.Optional;
 
-import com.dawes.modelos.llenadoContVO;
+import com.dawes.modelos.LlenadoContVO;
 
 public interface LlenadoContService {
 
-	<S extends llenadoContVO> S save(S entity);
+	<S extends LlenadoContVO> S save(S entity);
 
-	<S extends llenadoContVO> Iterable<S> saveAll(Iterable<S> entities);
+	<S extends LlenadoContVO> Iterable<S> saveAll(Iterable<S> entities);
 
-	Optional<llenadoContVO> findById(Integer id);
+	Optional<LlenadoContVO> findById(Integer id);
 
 	boolean existsById(Integer id);
 
-	Iterable<llenadoContVO> findAll();
+	Iterable<LlenadoContVO> findAll();
 
-	Iterable<llenadoContVO> findAllById(Iterable<Integer> ids);
+	Iterable<LlenadoContVO> findAllById(Iterable<Integer> ids);
 
 	long count();
 
 	void deleteById(Integer id);
 
-	void delete(llenadoContVO entity);
+	void delete(LlenadoContVO entity);
 
-	void deleteAll(Iterable<? extends llenadoContVO> entities);
+	void deleteAll(Iterable<? extends LlenadoContVO> entities);
 
 	void deleteAll();
 

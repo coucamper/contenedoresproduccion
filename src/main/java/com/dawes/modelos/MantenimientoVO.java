@@ -1,6 +1,7 @@
 package com.dawes.modelos;
 
 import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,14 +20,21 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="mantenimientos")
 public class MantenimientoVO {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idreparacion;
-	private String denom;
-	private LocalDate fechaop;
-	private String operario;
+	private int idmantenimiento;
+	
+	private LocalDate fechamantenimiento;
+	private String mantenimiento;
+	private String proveedor;
+	private Double coste;
+	private String numfactura;
+	private String tipomante;
 	
 	@ManyToOne
-	@JoinColumn(name="idcontenedor")
-	private ContenedorVO contenedores;
+	@JoinColumn(name="idvehiculo")
+	private VehiculoVO idvehiculo;
+	
+
 }

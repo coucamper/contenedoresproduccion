@@ -1,16 +1,15 @@
 package com.dawes.servicioimpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.dawes.modelos.MensajeVO;
 import com.dawes.repository.MensajeRepo;
 import com.dawes.services.MensajeService;
 
-@Primary
 @Service
 public class MensajeServiceImpl implements MensajeRepo, MensajeService {
 
@@ -71,6 +70,12 @@ public class MensajeServiceImpl implements MensajeRepo, MensajeService {
 	public void deleteAll() {
 		mr.deleteAll();
 	}
+
+	@Override
+	public List<MensajeVO> BuscarMensajesPorReceptor(int idreceptor) {
+		return mr.BuscarMensajesPorReceptor(idreceptor);
+	}
 	
 	
+
 }

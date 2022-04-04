@@ -1,13 +1,11 @@
 package com.dawes.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.dawes.modelos.VehiculoVO;
 
 @Repository
-public interface VehiculoRepo extends CrudRepository<VehiculoVO, Integer> {
-	
-	
+public interface VehiculoRepo extends JpaRepository<VehiculoVO, Integer> {
 
 }

@@ -23,13 +23,11 @@ public class VehiculoVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idvehiculo;
 	
-	private String matricula;
 	private String marca;
 	private String modelo;
+	private String matricula;
+	
 	private LocalDate fechacompra;
-	private String poliza;
-	private String aseguradora;
-	private double kilometros;
 	
 
 }

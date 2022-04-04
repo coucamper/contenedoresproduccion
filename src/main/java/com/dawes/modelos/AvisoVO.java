@@ -1,6 +1,6 @@
 package com.dawes.modelos;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,16 +25,13 @@ public class AvisoVO {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idaviso;
 	
-	private String tipoaviso;
-	
+	private LocalDateTime fechahora;
 	private String asunto;
-	
-	private String detalles;
-	
-	private LocalDate fechaaviso;
+	private String contenido;
 	
 	@ManyToOne
-	@JoinColumn(name="idempleado")
-	private EmpleadoVO empleado;
-	
+	@JoinColumn(name = "idremitente",referencedColumnName="idempleado", insertable=true, updatable=true, nullable = true)
+	private EmpleadoVO remitente;
+		
+
 }

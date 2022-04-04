@@ -7,7 +7,5 @@ import com.dawes.modelos.RolVO;
 
 @Repository
 public interface RolRepo extends CrudRepository<RolVO, Integer> {
-	
-	RolVO findByNombre(String nombre);
 
 }

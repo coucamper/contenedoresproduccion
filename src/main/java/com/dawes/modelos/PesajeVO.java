@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,7 +37,11 @@ public class PesajeVO {
 	private String comprobante;
 	
 	@ManyToOne
-	@JoinColumn(name="idoperario")
-	private OperarioVO operario;
+	@JoinColumn(name="idempleado")
+	private EmpleadoVO operario;
+	
+	@ManyToOne
+	@JoinColumn(name="idvehiculo")
+	private VehiculoVO vehiculo;
 	
 }

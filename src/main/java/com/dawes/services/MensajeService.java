@@ -1,5 +1,6 @@
 package com.dawes.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.dawes.modelos.MensajeVO;
@@ -27,5 +28,7 @@ public interface MensajeService {
 	void deleteAll(Iterable<? extends MensajeVO> entities);
 
 	void deleteAll();
+
+	List<MensajeVO> BuscarMensajesPorReceptor(int idreceptor);
 
 }
