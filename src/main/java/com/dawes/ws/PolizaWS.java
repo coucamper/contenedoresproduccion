@@ -73,7 +73,7 @@ public class PolizaWS {
 	@GetMapping("/polizav/{idvehiculo}")
 	public ResponseEntity<?> leerPorIdVehiculo(@PathVariable int idvehiculo) {
 		Optional<PolizaVO> c = ps.BuscarPolizaPorIdVehiculo(vs.findById(idvehiculo).get().getIdvehiculo());
-		if (c.isEmpty()) {
+		if (c == null) {
 			return ResponseEntity.notFound().build();
 		} else {
 			return ResponseEntity.ok(c);
